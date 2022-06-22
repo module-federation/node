@@ -1,4 +1,4 @@
-import CommonJsChunkLoadingPlugin from "./CommonJsChunkLoadingPlugin";
+const CommonJsChunkLoadingPlugin = require("./CommonJsChunkLoadingPlugin")
 
 class NodeSoftwareStreamRuntime {
   constructor(options, context) {
@@ -29,10 +29,7 @@ class NodeSoftwareStreamRuntime {
     }).apply(compiler);
     new (webpack?.node.NodeTargetPlugin ||
       require("webpack/lib/node/NodeTargetPlugin"))().apply(compiler);
-    console.log(
-      compiler.options.output.publicPath,
-      this.options.promiseBaseURI
-    );
+  console.log(this.options);
     new CommonJsChunkLoadingPlugin(
       {
         asyncChunkLoading: true,
@@ -46,4 +43,4 @@ class NodeSoftwareStreamRuntime {
   }
 }
 
-export default NodeSoftwareStreamRuntime;
+module.exports = NodeSoftwareStreamRuntime;
