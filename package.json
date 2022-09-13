@@ -1,4 +1,9 @@
 {
   "name": "@module-federation/node",
-  "version": "1.0.0"
+  "version": "0.0.1",
+  "description": "Module Federation for Node.js",
+  "main": "index.js",
+  "peerDependencies": {
+    "webpack": "5.40.0"
+  }
 }
