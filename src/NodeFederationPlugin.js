@@ -32,7 +32,7 @@ const executeLoadTemplate = `
         console.log("executing remote load", scriptUrl);
         return new Promise(function (resolve, reject) {
    
-         (global.webpackChunkLoad || fetch)(scriptUrl).then(function(res){
+         (global.webpackChunkLoad || global.fetch || require("node-fetch"))(scriptUrl).then(function(res){
             return res.text();
           }).then(function(scriptContent){
             try {

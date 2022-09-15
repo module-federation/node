@@ -4,6 +4,7 @@
   "description": "Module Federation for Node.js",
   "main": "index.js",
   "peerDependencies": {
-    "webpack": "5.40.0"
+    "webpack": "5.40.0",
+    "node-fetch": "^3.2.10"
   }
 }
