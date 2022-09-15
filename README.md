@@ -1,7 +1,29 @@
 # Module Federation Support for Node Environments
 
-Software streaming to enable node.js support for browser-like chunk loading
+This package exposes two Webpack Plugins to bring the concept and power of Module Federation to NodeJS. This will allow your server to fetch chunks across the network allowing for distributed deployments of federated applications.
 
+## Installation
+
+To install the plugin run one of the following commands in your terminal for your application.
+
+```bash
+# npm
+npm install @module-federation/node
+
+# yarn
+yarn add @module-federation/node
+```
+
+## Usage
+
+To then use the plugin, modify your `webpack.config.js` to include and use the two plugins.
+
+At build time, you need to be aware if you're building for the `server` or for the `browser`.
+If it's building for server, we need to set `target: false` to allow the plugins to function correctly.
+
+The `NodeFederationPlugin` follows the same API as the [Module Federation Plugin](https://webpack.js.org/plugins/module-federation-plugin) and therefore should be a drop-in replacement if you already have it set up in your `webpack.config.js`.
+
+An example configuration is presented below:
 ```js
 
 const {NodeFederationPlugin, StreamingTargetPlugin} = require("@module-federation/node");
