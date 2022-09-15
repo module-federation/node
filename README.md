@@ -1,28 +1,28 @@
-# node
+# Module Federation Support for Node Environments
+
 Software streaming to enable node.js support for browser-like chunk loading
 
 ```js
 
-const StreamingRuntime = require("../node/streaming");
-const NodeFederation = require("../node/streaming/NodeRuntime");
+const {NodeFederationPlugin, StreamingTargetPlugin} = require("@module-federation/node");
 
-
+const config = {
+  target: isServer ? false : "web",
   plugins: [
-    new StreamingRuntime({
+    new NodeFederationPlugin({
       name: 'website2',
-      library: { type: 'commonjs' },
+      library: {type: 'commonjs-module'},
+      remotes: {},
       filename: 'remoteEntry.js',
       exposes: {
         './SharedComponent': './remoteServer/SharedComponent',
       },
     }),
-    new NodeFederation({
+    new StreamingTargetPlugin({
       name: 'website2',
-      library: { type: 'commonjs' },
-      filename: 'remoteEntry.js',
-      exposes: {
-        './SharedComponent': './remoteServer/SharedComponent',
-      },
+      library: {type: 'commonjs-module'},
+      remotes: {},
     }),
   ]
+}
 ```
