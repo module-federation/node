@@ -1,5 +1,5 @@
-const NodeTargetPlugin = require('./src/NodeFederationPlugin');
+const NodeFederationPlugin = require('./src/NodeFederationPlugin');
 const StreamingTargetPlugin = require('./src/StreamingTargetPlugin');
 
-module.exports.NodeTargetPlugin = NodeTargetPlugin;
+module.exports.NodeFederationPlugin = NodeFederationPlugin;
 module.exports.StreamingTargetPlugin = StreamingTargetPlugin;
