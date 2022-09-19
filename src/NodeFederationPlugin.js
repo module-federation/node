@@ -36,7 +36,7 @@ const executeLoadTemplate = `
             return res.text();
           }).then(function(scriptContent){
             try {
-              const remote = eval(scriptContent + 'module.exports');
+              const remote = eval(scriptContent + '\\nmodule.exports');
               /* TODO: need something like a chunk loading queue, this can lead to async issues
                if two containers load the same remote, they can overwrite global scope
                should check someone is already loading remote and await that */
