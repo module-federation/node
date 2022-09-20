@@ -1,10 +1,10 @@
 {
   "name": "@module-federation/node",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Module Federation for Node.js",
   "main": "index.js",
   "peerDependencies": {
-    "webpack": "5.40.0",
-    "node-fetch": "^3.2.10"
+    "node-fetch": "^3.2.10",
+    "webpack": "5.40.0"
   }
 }
