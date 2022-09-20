@@ -352,7 +352,7 @@ class ReadFileChunkLoadingRuntimeModule extends RuntimeModule {
             '}',
             '',
             Template.getFunctionContent(
-              require('../hmr/JavascriptHotModuleReplacement.runtime.js')
+              require('webpack/lib/hmr/JavascriptHotModuleReplacement.runtime.js')
             )
               .replace(/\$key\$/g, 'readFileVm')
               .replace(/\$installedChunks\$/g, 'installedChunks')
