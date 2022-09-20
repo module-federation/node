@@ -30,13 +30,22 @@ const executeLoadTemplate = `
         const scriptUrl = remoteUrl.split("@")[1];
         const moduleName = remoteUrl.split("@")[0];
         console.log("executing remote load", scriptUrl);
+        const vm = require('node:vm');
         return new Promise(function (resolve, reject) {
    
          (global.webpackChunkLoad || global.fetch || require("node-fetch"))(scriptUrl).then(function(res){
             return res.text();
           }).then(function(scriptContent){
             try {
-              const remote = eval(scriptContent + 'module.exports');
+              const vmContext = {
+                module,
+                require,
+                __dirname,
+                global,
+                URL
+              };
+              const remote = vm.runInNewContext(scriptContent + '\\nmodule.exports', vmContext, { filename: 'node-federation-loader-' + moduleName + '.vm' });
+              
               /* TODO: need something like a chunk loading queue, this can lead to async issues
                if two containers load the same remote, they can overwrite global scope
                should check someone is already loading remote and await that */
