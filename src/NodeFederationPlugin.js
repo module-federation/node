@@ -20,15 +20,14 @@
 // VMT is like Realms but better - easiest analogy would be like forking the main thread, without going off main thread
 // VMT allows for scope isolation, but still allows reflection and non-primitive memory pointers to be shared - perfect for MFP
 
-//TODO: should use extractUrlAndGlobal from internal.js
 //TODO: should use Template system like LoadFileChunk runtime does.
 //TODO: should use vm.runInThisContext instead of eval
 //TODO: global.webpackChunkLoad could use a better convention? I have to use a special http client to get out of my infra firewall
 const executeLoadTemplate = `
     function executeLoad(remoteUrl) {
     console.log('remoteUrl',remoteUrl)
-        const scriptUrl = remoteUrl.split("@")[1];
-        const moduleName = remoteUrl.split("@")[0];
+        const extractUrlAndGlobal = require('webpack/lib/util/extractUrlAndGlobal');
+        const [scriptUrl, moduleName] = extractUrlAndGlobal(remoteUrl);
         console.log("executing remote load", scriptUrl);
         return new Promise(function (resolve, reject) {
    
