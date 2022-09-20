@@ -22,7 +22,6 @@
 
 //TODO: should use extractUrlAndGlobal from internal.js
 //TODO: should use Template system like LoadFileChunk runtime does.
-//TODO: should use vm.runInThisContext instead of eval
 //TODO: global.webpackChunkLoad could use a better convention? I have to use a special http client to get out of my infra firewall
 const executeLoadTemplate = `
     function executeLoad(remoteUrl) {
