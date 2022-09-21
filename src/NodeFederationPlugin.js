@@ -29,7 +29,7 @@ const executeLoadTemplate = `
         const scriptUrl = remoteUrl.split("@")[1];
         const moduleName = remoteUrl.split("@")[0];
         console.log("executing remote load", scriptUrl);
-        const vm = require('node:vm');
+        const vm = require('vm');
         return new Promise(function (resolve, reject) {
    
          (global.webpackChunkLoad || global.fetch || require("node-fetch"))(scriptUrl).then(function(res){
