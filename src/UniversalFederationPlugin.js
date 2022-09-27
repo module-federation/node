@@ -10,16 +10,16 @@ class UniversalFederationPlugin {
   }
 
   apply(compiler) {
-    const isServer = this.options.isServer || compiler.options.name === 'server';
+    const {isServer, ...options} = this.options;
     const {webpack} = compiler;
 
-    if(isServer) {
-      new NodeFederationPlugin({experiments: this.experiments, ...this.options}).apply(compiler);
-      new StreamingTargetPlugin(this.options).apply(compiler);
+    if(isServer || compiler.options.name === 'server') {
+      new NodeFederationPlugin({experiments: this.experiments, ...options}).apply(compiler);
+      new StreamingTargetPlugin(options).apply(compiler);
     } else {
       new (this.context.ModuleFederationPlugin || (webpack && webpack.container.ModuleFederationPlugin) ||
         require('webpack/lib/container/ModuleFederationPlugin'))(
-        this.options
+        options
       ).apply(compiler);
     }
   }
