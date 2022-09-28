@@ -1,8 +1,23 @@
-# Module Federation Support for Node Environments
+![banner image](./assets/banner.png)
+<div align="center">
+	<!--  for version -->
+  <img src="https://img.shields.io/npm/v/@module-federation/node" alt="version" >
+	<img src="https://img.shields.io/apm/l/atomic-design-ui.svg?" alt="license" >
+  <!-- for downloads -->
+  <img src="https://img.shields.io/npm/dt/@module-federation/node" alt="downloads">
+ </div>
 
-This package exposes three Webpack Plugins to bring the concept and power of Module Federation to NodeJS. This will allow your server to fetch chunks across the network allowing for distributed deployments of federated applications.
+<p align="center">
+<strong>A package to bring the concept and power of module federation to NodeJS.</strong>
+</p>
 
-## Installation
+## ⚡ Features
+- Exposes two Webpack Plugins to enable Module Federation.
+- Can exported as UniversalFederationPlugin or NodeFederationPlugin with StreamingTargetPlugin
+- Allows server to fetch chunks across the network.
+- Allow distributed deployments of federated applications.
+
+## 📦 Installation
 
 To install the plugin run one of the following commands in your terminal for your application.
 
@@ -14,7 +29,7 @@ npm install @module-federation/node
 yarn add @module-federation/node
 ```
 
-## Usage
+## 🚀 Usage
 
 There are two approaches to using the plugins exported from this package, dependent on your use case.
 
@@ -60,6 +75,7 @@ If it's building for server, we need to set `target: false` to allow the plugins
 
 The `NodeFederationPlugin` follows the same API as the [Module Federation Plugin](https://webpack.js.org/plugins/module-federation-plugin) and therefore should be a drop-in replacement if you already have it set up in your `webpack.config.js`.
 
+### 🔧 Config Example
 An example configuration is presented below:
 ```js
 
@@ -85,3 +101,12 @@ const config = {
   ]
 }
 ```
+## 🔑 License
+- MIT @[ScriptedAlchemy](https://github.com/ScriptedAlchemy)
+
+## 👨‍💻 Contributors
+List of our amazing contributors 💥
+
+<a href="https://github.com/module-federation/node/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=module-federation/node" />
+</a>
