@@ -3,7 +3,6 @@
 # This repo has been relocated. 
 All contributions should go to: https://github.com/module-federation/nextjs-mf/tree/main/packages/node
 
-![banner image](./assets/banner.png)
 <div align="center">
 	<!--  for version -->
   <img src="https://img.shields.io/npm/v/@module-federation/node" alt="version" >
